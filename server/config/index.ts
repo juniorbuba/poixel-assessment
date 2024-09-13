@@ -13,7 +13,6 @@ export const config = {
   port: process.env.PORT !== '' ? (process.env.PORT as string) : 4444,
   database: { mongo_url: process.env.MONGODB_URL as string  },
   session: { secret: process.env.SESSION_SECRET as string },
-  logzio: { token: process.env.LOGZIO_TOKEN as string },
   web_application: {
     url: process.env.WEB_APP_URL as string,
     url_admin: process.env.WEB_APP_URL_ADMIN as string,
