@@ -1,5 +1,5 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
-.env*
+.env
 !.env.sample
 
 # Ignore tests folder for now, will push when tests are ready
@@ -49,7 +49,6 @@ testem.log
 Thumbs.db
 
 # Dev environment only
-.env*
 /release.sh
 /serve.sh
 /ecosystem.*.js
