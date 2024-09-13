@@ -11,12 +11,5 @@ export class AdminService extends UserService {
     super(Admin);
   }
 
-  async addPassword({ id, password }): Promise<any> {
-    const user = await this.findOne({
-      _id: id,
-      password_set: { $exists: false },
-    });
-    await user.resetPassword(password);
-    return user;
-  }
+  // Admin-specific function go here
 }
