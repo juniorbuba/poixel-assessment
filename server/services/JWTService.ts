@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 import { Service } from 'typedi';
-
 import { sign, verify } from 'jsonwebtoken';
 import { config } from '../config';
 

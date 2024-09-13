@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-
 import { Service } from 'typedi';
 import { IUser, User } from '../models';
 import { ResourceService } from './ResourceService';

@@ -34,7 +34,7 @@ export class ResourceService {
     const data = this.beforeCreate(body);
     const doc = await this.model.create(data);
     if (doc !== undefined) {
-      const aftercreate = await this.afterCreate(doc, data);
+      await this.afterCreate(doc, data);
       return doc;
     }
   }
