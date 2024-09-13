@@ -19,7 +19,22 @@ export class ExpressApp {
   }
 
   private config(): void {
-    this.app.use(helmet({ frameguard: { action: 'deny' } }));
+    this.app.use(
+      helmet({
+        contentSecurityPolicy: {
+          directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'"],
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            imgSrc: ["'self'", "data:", "https:"],
+          },
+        },
+        referrerPolicy: {
+          policy: 'strict-origin-when-cross-origin',
+        },
+        frameguard: { action: "deny" },
+      })
+    );
 
     if (config.env.is_production) {
       this.app.set('trust proxy', true);
@@ -43,15 +58,15 @@ export class ExpressApp {
         credentials: true,
         methods: 'GET, POST, PUT, DELETE',
         allowedHeaders: 'Origin, Authorization, X-Requested-With, X-Forwarded-Proto, Content-Type, Accept',
-        origin: '*',
-        /* origin: (origin, callback) => {
+        // origin: '*',
+        origin: (origin, callback) => {
           if (allowedOrigins.includes(origin) || origin === undefined) {
             return callback(null, true)
           }
           const msg =
             'The CORS policy for this site does not allow access from the specified Origin.'
           return callback(new Error(msg), false)
-        } */
+        }
       }),
     );
 
