@@ -1,9 +1,6 @@
 import 'reflect-metadata';
 import { Container } from 'typedi';
-
 import { NextFunction, Request, Response, Router } from 'express';
-import { AdminGuard, AuthGuard } from '../middlewares';
-import { adminRoutes } from './admin';
 import { authRoutes } from './auth';
 import { userRoutes } from './user';
 
@@ -19,7 +16,6 @@ class ApiRoutes {
     this.router
       .get('/', this.index)
       .use('/auth', authRoutes)
-      .use('/admins', AuthGuard, AdminGuard, adminRoutes)
       .use('/user', userRoutes)
   }
 
