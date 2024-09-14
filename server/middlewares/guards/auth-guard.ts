@@ -13,8 +13,6 @@ export const AuthGuard = (req: Request, res: Response, next: NextFunction): void
     authService
       .validate(token)
       .then(({ user, admin }) => {
-        console.log(user, 'user')
-        console.log(admin, 'admin')
         if (user !== undefined) {
           (req as any).user = user;
           next();
