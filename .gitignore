@@ -1,9 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 .env
+.env.test
+!.env.test.sample
 !.env.sample
-
-# Ignore tests folder for now, will push when tests are ready
-tests
 
 csv
 downloads
