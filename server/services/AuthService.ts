@@ -30,7 +30,6 @@ export class AuthService {
 
   async validate(token): Promise<{ user?: IUser; admin?: IAdmin }> {
     const decoded = this.jwt.verify(token);
-    console.log(decoded, 'decoded token')
     if (decoded !== null) {
       let user: IUser;
       let admin: IAdmin;
@@ -43,14 +42,12 @@ export class AuthService {
         await user.save();
         return { user };
       } else if (decoded.admin !== undefined) {
-        console.log(decoded.admin, 'decoded admin')
         admin = await this.adminService.findById(decoded.admin, {
           email: 1,
           first_name: 1,
           last_name: 1,
           level: 1
         });
-        console.log(admin, 'admin find by id')
         await admin.save();
         return { admin };
       }
