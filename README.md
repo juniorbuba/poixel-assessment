@@ -11,7 +11,7 @@
 4. Ensure you have [mongodb](https://www.mongodb.com/docs/manual/installation/) installed and running as a service in the background.
 5. Run `npm run start` in the terminal
 6. Once you see `Connection established to database` in your console. The app is up and running succeessfully.
-7. Click the [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/11694526-303b2215-366e-4cc0-ba1b-d452382de250?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D11694526-303b2215-366e-4cc0-ba1b-d452382de250%26entityType%3Dcollection%26workspaceId%3D904f0982-fc55-43ea-97e0-bd8592d5b715) button to open the collection with which you can interact with the app in Postman.
+7. Click the [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/11694526-303b2215-366e-4cc0-ba1b-d452382de250?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D11694526-303b2215-366e-4cc0-ba1b-d452382de250%26entityType%3Dcollection%26workspaceId%3D904f0982-fc55-43ea-97e0-bd8592d5b715) button to open the collection with which you can interact with the app in Postman. The requests won't work in a browser, hence, the need to use the desktop agent. You can use any other REST client of your choice as long as the requests are made to the `localhost:8005/api/v1` URL slug. <br> **Note**: The port specified in the .env file is `8005`, if a port is not specified, it defaults to `4444`
 8. Admin is automatically created and only `admin` can access the CRUD endpoints on `users`.
 
 #### Run Unit Tests
