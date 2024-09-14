@@ -63,15 +63,6 @@ schema.pre('save', async function (next): Promise<void> {
   }
   next();
 });
-// schema.pre('updateOne', async function (next): Promise<void> {
-//   if (this.isNew) {
-//     const doc: any = this; // eslint-disable-line @typescript-eslint/no-this-alias
-//     if (doc.password !== '') {
-//       doc.password = await hash(doc.password, 10);
-//     }
-//   }
-//   next();
-// });
 
 schema.post('save', duplicateKeyError);
 schema.post('update', duplicateKeyError);
@@ -86,12 +77,6 @@ schema.plugin(mongoose_delete, {
 
 schema.methods.comparePassword = async function (password): Promise<boolean> {
   return await compare(password, this.password);
-};
-
-schema.methods.resetPassword = async function (password): Promise<IUser> {
-  const doc: any = this; // eslint-disable-line @typescript-eslint/no-this-alias
-  doc.password = await hash(password, 10);
-  return doc.save();
 };
 
 schema.index({ createdAt: 1 });

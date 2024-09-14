@@ -9,8 +9,7 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });
-    console.log('Starting Admin seeding process...');
-    console.log('Admin seeding process: connected to db successfully');
+    console.log('Admin seeding process started: connected to db successfully');
   } catch (error) {
     console.error('Database connection error:', error);
     process.exit(1);

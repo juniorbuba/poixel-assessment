@@ -41,10 +41,9 @@ schema.set('toJSON', {
   },
 });
 
-// eslint-disable-next-line @typescript-eslint/no-misused-promises
 schema.pre('save', async function (next): Promise<void> {
   if (this.isNew) {
-    const doc: any = this; // eslint-disable-line @typescript-eslint/no-this-alias
+    const doc: any = this;
     if (doc.password !== '') {
       doc.password = await hash(doc.password, 10);
     }
@@ -65,13 +64,6 @@ schema.plugin(mongoose_delete, {
 
 schema.methods.comparePassword = async function (password): Promise<boolean> {
   return await compare(password, this.password);
-};
-
-schema.methods.resetPassword = async function (password): Promise<IAdmin> {
-  const doc: any = this; // eslint-disable-line @typescript-eslint/no-this-alias
-  doc.password = await hash(password, 10);
-  doc.password_set = true;
-  return doc.save();
 };
 
 schema.index({ createdAt: 1 });

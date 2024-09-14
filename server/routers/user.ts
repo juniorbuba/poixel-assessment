@@ -71,11 +71,10 @@ class UserRoutes {
 
   private getUsers(req: Request, res: Response, next: NextFunction): void {
     const userService = Container.get(UserService);
-    const userType = req.query.userType ? { user_type: req.query.userType } : {};
     const page = req.query.page !== '' ? Number(req.query.page) : 1;
     const page_size = req.query.size !== '' ? Number(req.query.size) : 12;
     userService
-      .paginate({ ...userType }, page, page_size)
+      .paginate({ }, page, page_size)
       .then((results) => res.json(results))
       .catch((err) => {
         console.log(err)

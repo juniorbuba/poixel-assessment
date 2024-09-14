@@ -1,6 +1,6 @@
 ### To run this project, please adhere to the following instructions: 
 
-#### Project Setup
+#### Initial Project Setup
 
 1. Clone the project: Github provides multiples options on cloning projects. Choose one of these options so you can have a copy of this project on your local machine.
 
@@ -13,6 +13,10 @@
 6. Once you see `Connection established to database` in your console. The app is up and running succeessfully.
 7. Click the [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/11694526-303b2215-366e-4cc0-ba1b-d452382de250?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D11694526-303b2215-366e-4cc0-ba1b-d452382de250%26entityType%3Dcollection%26workspaceId%3D904f0982-fc55-43ea-97e0-bd8592d5b715) button to open the collection with which you can interact with the app in Postman.
 8. Admin is automatically created and only `admin` can access the CRUD endpoints on `users`.
+
+#### Run Unit Tests
+* Rename the `.env.test.sample` file to `.env.test`. This file contains credentials to run the app in test mode. Basically, creating another database for data storage and running the application on a port separate from the `Initial Project Setup` phase.
+* Open a terminal and run `npm run test`. This automatically spins up the server on the port specified in `.env.test` and runs the unit tests in the `tests` directory. You should see the status of these tests in your console.
 
 #### Project Routes
 * Authentication 
